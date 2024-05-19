@@ -120,29 +120,30 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-    // Crear una lista para simular la pila
     List* pila = create_list();
 
     for (int i = 0; cadena[i] != '\0'; i++) {
         char c = cadena[i];
 
-        // Si encontramos un paréntesis de apertura, lo agregamos a la pila
-        if (c == '(') {
+        if (c == '(' || c == '{' || c == '[') {
             char *p = malloc(sizeof(char));
             *p = c;
             pushBack(pila, p);
-        } else if (c == ')') {
-            // Si encontramos un paréntesis de cierre, verificamos la pila
+        } else if (c == ')' || c == '}' || c == ']') {
             if (get_size(pila) == 0) {
-                // Si la pila está vacía, significa que hay un paréntesis de cierre sin su apertura correspondiente
-                return 0;
+                return 0; // No hay paréntesis de apertura correspondiente
             }
-            // Quitamos el paréntesis de apertura correspondiente de la pila
-            free(popBack(pila));
+            char *top = (char *)popBack(pila);
+            if ((c == ')' && *top != '(') ||
+                (c == '}' && *top != '{') ||
+                (c == ']' && *top != '[')) {
+                free(top);
+                return 0; // Los paréntesis no coinciden
+            }
+            free(top);
         }
     }
 
-    // Si la pila está vacía, los paréntesis están balanceados
     int balanceado = get_size(pila) == 0;
 
     // Liberar cualquier paréntesis que quede en la pila
@@ -150,8 +151,6 @@ int parentesisBalanceados(char *cadena) {
         free(popBack(pila));
     }
 
-    // Liberar la lista
     free(pila);
-
     return balanceado;
 }
