@@ -46,21 +46,9 @@ List* crea_lista() {
     for (int i = 1; i <= 10; i++) {
         int *elemento = (int *)malloc(sizeof(int));
         *elemento = i;
-
-        // Insertar el elemento al final de la lista
-        if (L->size == 0) {
-            L->first = L->last = (Node*) malloc(sizeof(Node));
-            L->first->data = elemento;
-            L->first->next = NULL;
-        } else {
-            L->last->next = (Node*) malloc(sizeof(Node));
-            L->last->next->data = elemento;
-            L->last->next->next = NULL;
-            L->last = L->last->next;
-        }
-
-        L->size++;
+        pushBack(L, elemento); // Usamos la función pushBack para agregar elementos al final de la lista
     }
+
    return L;
 }
 
