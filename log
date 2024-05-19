@@ -2,3 +2,51 @@ Sun 19 May 2024 01:31:00 AM UTC:
  tests:  0|5
 total_score: 0/70
 ae96a4f
+Sun 19 May 2024 01:33:42 AM UTC: 
+ exercises.c | 113 +++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 46 insertions(+), 67 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘crea_lista’:
+exercises.c:14:9: error: implicit declaration of function ‘add’ [-Werror=implicit-function-declaration]
+   14 |         add(L, elemento);
+      |         ^~~
+exercises.c: In function ‘eliminaElementos’:
+exercises.c:30:5: error: implicit declaration of function ‘start_iteration’ [-Werror=implicit-function-declaration]
+   30 |     start_iteration(L);
+      |     ^~~~~~~~~~~~~~~
+exercises.c:31:31: error: implicit declaration of function ‘current’; did you mean ‘popCurrent’? [-Werror=implicit-function-declaration]
+   31 |     while ((elemento = (int *)current(L)) != NULL) {
+      |                               ^~~~~~~
+      |                               popCurrent
+exercises.c:31:24: error: cast to pointer from integer of different size [-Werror=int-to-pointer-cast]
+   31 |     while ((elemento = (int *)current(L)) != NULL) {
+      |                        ^
+exercises.c:33:18: error: implicit declaration of function ‘removeCurrent’; did you mean ‘popCurrent’? [-Werror=implicit-function-declaration]
+   33 |             free(removeCurrent(L));
+      |                  ^~~~~~~~~~~~~
+      |                  popCurrent
+exercises.c:33:18: error: passing argument 1 of ‘free’ makes pointer from integer without a cast [-Werror=int-conversion]
+   33 |             free(removeCurrent(L));
+      |                  ^~~~~~~~~~~~~~~~
+      |                  |
+      |                  int
+In file included from test.c:2:
+/nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdlib.h:555:25: note: expected ‘void *’ but argument is of type ‘int’
+  555 | extern void free (void *__ptr) __THROW;
+      |                   ~~~~~~^~~~~
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:50:5: error: implicit declaration of function ‘destroy_stack’ [-Werror=implicit-function-declaration]
+   50 |     destroy_stack(aux); // Liberar la memoria de la pila auxiliar
+      |     ^~~~~~~~~~~~~
+exercises.c: In function ‘parentesisBalanceados’:
+exercises.c:59:17: error: implicit declaration of function ‘isEmpty’ [-Werror=implicit-function-declaration]
+   59 |             if (isEmpty(pila)) {
+      |                 ^~~~~~~
+test.c: In function ‘test_copia_pila’:
+test.c:201:5: error: implicit declaration of function ‘imprime_y_vacia_pila’ [-Werror=implicit-function-declaration]
+  201 |     imprime_y_vacia_pila(P1copy);
+      |     ^~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2ffe8cc
