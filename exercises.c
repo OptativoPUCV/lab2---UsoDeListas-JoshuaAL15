@@ -7,18 +7,6 @@
 #include "stack.h"
 //#include "exercises.h"
 // Definimos nuestra propia estructura para un nodo
-typedef struct Node {
-    void* data;
-    struct Node* next;
-} Node;
-
-// Definimos nuestra propia estructura para una lista
-typedef struct List {
-    Node* first;
-    Node* last;
-    int size;
-} List;
-
 
 
 
@@ -73,10 +61,10 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
     int suma = 0;
-    Node* current = L->first;
-    while (current != NULL) {
-        suma += *(int *)current->data;
-        current = current->next;
+    void *dato = first(L);
+    while (dato != NULL) {
+        suma += *(int *)dato;
+        dato = next(L);
     }
     return suma;
 }
@@ -118,6 +106,16 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
+    Stack *aux = create_stack();
+    void *dato;
+    while ((dato = pop(P1)) != NULL) {
+        push(aux, dato);
+    }
+    while ((dato = pop(aux)) != NULL) {
+        push(P2, dato);
+        push(P1, dato); // Devolver los elementos a P1 en su orden original
+    }
+    destroy_stack(aux);
 }
 
 /*
@@ -128,5 +126,5 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-   return 0;
+    return 0;
 }
