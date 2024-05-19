@@ -79,23 +79,7 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List*L, int elem){
-    Node* current = L->first;
-    Node* prev = NULL;
-    while (current != NULL) {
-        if (*(int *)current->data == elem) {
-            if (prev == NULL) {
-                popFront(L);
-                current = L->first;
-            } else {
-                popCurrent(L);
-                current = prev->next;
-            }
-        } else {
-            prev = current;
-            current = current->next;
-        }
-    }
-
+    
 }
 
 /*
@@ -106,16 +90,7 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-    Stack *aux = create_stack();
-    void *dato;
-    while ((dato = pop(P1)) != NULL) {
-        push(aux, dato);
-    }
-    while ((dato = pop(aux)) != NULL) {
-        push(P2, dato);
-        push(P1, dato); // Devolver los elementos a P1 en su orden original
-    }
-    destroy_stack(aux);
+    
 }
 
 /*
