@@ -50,3 +50,9 @@ test.c:201:5: error: implicit declaration of function ‘imprime_y_vacia_pila’
 cc1: all warnings being treated as errors
 Compilation failed
 2ffe8cc
+Sun 19 May 2024 01:35:59 AM UTC: 
+ exercises.c | 112 +++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 66 insertions(+), 46 deletions(-)
+ tests:  0|5
+total_score: 0/70
+e73cf13
