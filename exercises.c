@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include "arraylist.h"
 #include "stack.h"
+//#include "exercises.h"
 // Definimos nuestra propia estructura para un nodo
 typedef struct Node {
     void* data;
@@ -19,7 +20,7 @@ typedef struct List {
 } List;
 
 
-//#include "exercises.h"
+
 
 //Funciones auxiliares que puedes utilizar para debuggear tus ejercicios
 //NO MODIFICAR
@@ -90,6 +91,22 @@ posiciona en el elemento anterior.
 */
 
 void eliminaElementos(List*L, int elem){
+    Node* current = L->first;
+    Node* prev = NULL;
+    while (current != NULL) {
+        if (*(int *)current->data == elem) {
+            if (prev == NULL) {
+                popFront(L);
+                current = L->first;
+            } else {
+                popCurrent(L);
+                current = prev->next;
+            }
+        } else {
+            prev = current;
+            current = current->next;
+        }
+    }
 
 }
 
