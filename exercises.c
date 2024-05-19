@@ -5,6 +5,19 @@
 #include <ctype.h>
 #include "arraylist.h"
 #include "stack.h"
+// Definimos nuestra propia estructura para un nodo
+typedef struct Node {
+    void* data;
+    struct Node* next;
+} Node;
+
+// Definimos nuestra propia estructura para una lista
+typedef struct List {
+    Node* first;
+    Node* last;
+    int size;
+} List;
+
 
 //#include "exercises.h"
 
@@ -58,8 +71,13 @@ Crea una función que reciba una lista de enteros (int*) y
 retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
-    
-   return 0;
+    int suma = 0;
+    Node* current = L->first;
+    while (current != NULL) {
+        suma += *(int *)current->data;
+        current = current->next;
+    }
+    return suma;
 }
 
 /*

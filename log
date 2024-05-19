@@ -112,3 +112,118 @@ Sun 19 May 2024 01:42:54 AM UTC:
  tests:  2|3
 total_score: 20/70
 960dbc3
+Sun 19 May 2024 01:50:24 AM UTC: 
+ exercises.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+In file included from test.c:6:
+arraylist.c:6:8: error: redefinition of ‘struct List’
+    6 | struct List {
+      |        ^~~~
+In file included from test.c:5:
+exercises.c:15:16: note: originally defined here
+   15 | typedef struct List {
+      |                ^~~~
+In file included from test.c:6:
+arraylist.c: In function ‘create_list’:
+arraylist.c:16:4: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   16 |   L->current = 0;
+      |    ^~
+arraylist.c: In function ‘first’:
+arraylist.c:25:4: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   25 |   L->current = 0;
+      |    ^~
+arraylist.c:26:11: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   26 |   return L->data[L->current];
+      |           ^~
+arraylist.c:26:19: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   26 |   return L->data[L->current];
+      |                   ^~
+arraylist.c: In function ‘next’:
+arraylist.c:30:7: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   30 |   if(L->current < L->size - 1) {
+      |       ^~
+arraylist.c:31:6: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   31 |     L->current++;
+      |      ^~
+arraylist.c:32:13: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   32 |     return L->data[L->current];
+      |             ^~
+arraylist.c:32:21: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   32 |     return L->data[L->current];
+      |                     ^~
+arraylist.c: In function ‘pushFront’:
+arraylist.c:39:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   39 |     L->data[0] = dato;
+      |      ^~
+arraylist.c:44:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   44 |     L->data[i] = L->data[i - 1];
+      |      ^~
+arraylist.c:44:19: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   44 |     L->data[i] = L->data[i - 1];
+      |                   ^~
+arraylist.c:46:4: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   46 |   L->data[0] = dato;
+      |    ^~
+arraylist.c: In function ‘pushBack’:
+arraylist.c:51:4: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   51 |   L->data[L->size] = dato;
+      |    ^~
+arraylist.c: In function ‘pushCurrent’:
+arraylist.c:57:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   57 |     L->data[0] = dato;
+      |      ^~
+arraylist.c:61:29: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   61 |   for(int i = L->size; i > L->current; i--) {
+      |                             ^~
+arraylist.c:62:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   62 |     L->data[i] = L->data[i - 1];
+      |      ^~
+arraylist.c:62:19: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   62 |     L->data[i] = L->data[i - 1];
+      |                   ^~
+arraylist.c:64:4: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   64 |   L->data[L->current + 1] = dato;
+      |    ^~
+arraylist.c:64:12: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   64 |   L->data[L->current + 1] = dato;
+      |            ^~
+arraylist.c: In function ‘popFront’:
+arraylist.c:72:17: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   72 |   void* dato = L->data[0];
+      |                 ^~
+arraylist.c:74:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   74 |     L->data[i] = L->data[i + 1];
+      |      ^~
+arraylist.c:74:19: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   74 |     L->data[i] = L->data[i + 1];
+      |                   ^~
+arraylist.c: In function ‘popBack’:
+arraylist.c:84:17: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   84 |   void* dato = L->data[L->size - 1];
+      |                 ^~
+arraylist.c: In function ‘popCurrent’:
+arraylist.c:93:17: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   93 |   void* dato = L->data[L->current];
+      |                 ^~
+arraylist.c:93:25: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   93 |   void* dato = L->data[L->current];
+      |                         ^~
+arraylist.c:94:16: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   94 |   for(int i = L->current; i < L->size - 1; i++) {
+      |                ^~
+arraylist.c:95:6: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   95 |     L->data[i] = L->data[i + 1];
+      |      ^~
+arraylist.c:95:19: error: ‘List’ {aka ‘struct List’} has no member named ‘data’
+   95 |     L->data[i] = L->data[i + 1];
+      |                   ^~
+arraylist.c:98:4: error: ‘List’ {aka ‘struct List’} has no member named ‘current’
+   98 |   L->current--;
+      |    ^~
+arraylist.c: In function ‘first’:
+arraylist.c:27:1: error: control reaches end of non-void function [-Werror=return-type]
+   27 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+de02801
